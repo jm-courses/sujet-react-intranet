@@ -79,7 +79,7 @@ Commencez par créer un nouveau répertoire pour votre projet :
 
 ```bash
 # Récupération du serveur API
-git clone git@github.com:jm-courses/sujet-react-intranet.git --depth 1 --branch "main" "projet-intranet"
+git clone https://github.com/jm-courses/sujet-react-intranet.git "projet-intranet"
 ```
 
 Installez les dépendances du serveur dans le sous-dossier `/server-json/` :
