@@ -22,7 +22,6 @@ const auth = require('./middlewares/auth');
 
 app.use('/api/login', require('./login'));
 app.use('/api/collaborateurs', auth, require('./router'));
-app.use('/', (req, res) => res.sendFile(path.join(__dirname, './data/index.html')));
 
 // DÉMARRAGE DE L'APP
 app.listen(process.env.APP_PORT, () => {
