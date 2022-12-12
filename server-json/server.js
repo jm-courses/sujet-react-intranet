@@ -1,15 +1,25 @@
 require('dotenv').config({ path: '.env.final' });
-const path = require('path');
+const path = require('node:path');
 const express = require('express');
 const cors = require('cors');
 const morgan = require('morgan');
 const open = require('open');
+const { readFileSync } = require('node:fs');
 
 // INITIALISATION
 
 const app = express();
 
 // MIDDLEWARES
+
+function getHome(req, res) {
+  let file = readFileSync(path.join(__dirname, 'static', 'index.html'), 'utf8');
+  file = file.replace('{APP_PORT}', process.env.APP_PORT);
+  res.send(file);
+}
+
+app.get('/', getHome);
+app.get('/index.html', getHome);
 
 app.use('/', express.static(path.join(__dirname, 'static')));
 app.use('/api', cors());
